@@ -1,0 +1,27 @@
+[package]
+name = "luperiq-mod-seo"
+version = "0.1.0"
+edition = "2021"
+description = "SEO Insights module — per-page SEO meta, bulk import, sitemaps, scoring, A/B testing, link checking, Google integration"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+axum = { workspace = true }
+axum-extra = { version = "0.10", features = ["cookie"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+ulid = "1"
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+regex = "1"
+urlencoding = "2"
+tokio = { workspace = true }
+blake3 = { workspace = true }
+# 2026-05-30 wal-shrink: read the capped SEO-crawl side-store (data/seo_crawl.sqlite).
+# Version + features match luperiq-cms exactly so Cargo unifies a single build of
+# the bundled SQLite. See crawl_tracker.rs::load_all_events for the duplication note.
+rusqlite = { version = "0.32", features = ["bundled"] }
+
+[dev-dependencies]
+tempfile = "3"

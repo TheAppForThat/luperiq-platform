@@ -1,0 +1,18 @@
+[package]
+name = "luperiq-mod-company-profile"
+version = "0.1.0"
+edition = "2021"
+description = "Company Profile module — business identity fact sheet with semi-automated import, AI extraction, and questionnaire wizard"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+axum = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+ulid = "1"
+tokio = { workspace = true }
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[dev-dependencies]
+tempfile = "3"

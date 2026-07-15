@@ -1,0 +1,17 @@
+[package]
+name = "luperiq-mod-blog"
+version = "0.1.0"
+edition = "2021"
+description = "Blog module — public blog index and single-post pages with SEO, Theme Studio, and admin toolbar integration"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+axum = { workspace = true }
+axum-extra = { version = "0.10", features = ["cookie"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+tera = "1"
+
+[dev-dependencies]
+tempfile = "3"

@@ -1,0 +1,22 @@
+[package]
+name = "luperiq-mod-content-pipeline"
+version = "0.1.0"
+edition = "2021"
+description = "Content Pipeline module — two-stage AI content generation with SEO optimization"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+luperiq-mod-company-profile = { path = "../luperiq-mod-company-profile" }
+luperiq-mod-industry-profile = { path = "../luperiq-mod-industry-profile" }
+luperiq-mod-location-profile = { path = "../luperiq-mod-location-profile" }
+axum = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+tokio = { workspace = true }
+ulid = "1"
+handlebars = "6"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[dev-dependencies]
+tempfile = "3"

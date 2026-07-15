@@ -1,0 +1,17 @@
+[package]
+name = "luperiq-mod-directory"
+version = "0.1.0"
+edition = "2021"
+description = "Pest-control company public directory — state/city/company pages with SEO, schema.org, and claim flow"
+
+[dependencies]
+axum = { workspace = true }
+luperiq-mod-seo = { path = "../luperiq-mod-seo" }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+tokio = { workspace = true }
+rusqlite = { version = "0.32", features = ["bundled"] }
+tera = "1"
+tracing = "0.1"
+tower-layer = "0.3"
+tower-service = "0.3"

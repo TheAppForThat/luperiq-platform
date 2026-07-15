@@ -1,0 +1,9 @@
+/target
+**/*.rs.bk
+*.pem
+*.key
+*.pfx
+.env
+.env.*
+!.env.example
+Cargo.lock

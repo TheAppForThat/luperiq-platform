@@ -5,6 +5,12 @@ edition = "2021"
 publish = false
 
 [dependencies]
-luperiq = { path = "../../crates/luperiq" }
-serde = { version = "1.0", features = ["derive"] }
-tokio = { version = "1.0", features = ["full"] }
+luperiq-module-api = { path = "../../crates/luperiq-module-api" }
+luperiq-forge-api = { path = "../../crates/luperiq-forge-api" }
+luperiq-mod-blog = { path = "../../crates/luperiq-mod-blog" }
+luperiq-mod-page-generator = { path = "../../crates/luperiq-mod-page-generator" }
+luperiq-mod-seo = { path = "../../crates/luperiq-mod-seo" }
+luperiq-mod-forms = { path = "../../crates/luperiq-mod-forms" }
+luperiq-mod-directory = { path = "../../crates/luperiq-mod-directory" }
+serde = { workspace = true }
+tokio = { workspace = true }

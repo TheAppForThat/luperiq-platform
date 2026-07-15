@@ -1,0 +1,10 @@
+[package]
+name = "luperiq-mod-iqtags-core"
+version = "0.1.0"
+edition = "2021"
+description = "IQtags pure core: parse @mentions/#hashtags/[[wikilinks]] from text, normalize to slugs, and RANK candidate knowledge nodes for a query. No I/O — the fast candidate lookup (FTS5/slug index) lives in the store adapter; this turns text into ranked, typed links (a smart tag = a graph edge)."
+publish = false
+
+# Member of the _knowledge-platform suite workspace. Pure: serde only.
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }

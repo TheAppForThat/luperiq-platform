@@ -1,0 +1,21 @@
+[package]
+name = "luperiq-mod-site-catalog"
+version = "0.1.0"
+edition = "2021"
+description = "Site Type Catalog — central registry of every industry/site type with defaults for theme, modules, pages, pricing, and onboarding"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+luperiq-mod-sales-funnel = { path = "../luperiq-mod-sales-funnel" }
+axum = { workspace = true }
+axum-extra = { version = "0.10", features = ["cookie"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+ulid = { workspace = true }
+tokio = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

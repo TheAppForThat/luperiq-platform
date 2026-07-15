@@ -1,0 +1,21 @@
+[package]
+name = "luperiq-mod-page-generator"
+version = "0.1.0"
+edition = "2021"
+description = "Page Generator module — AI-powered page generation with industry-specific providers"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+luperiq-mod-content-sources = { path = "../luperiq-mod-content-sources" }
+luperiq-mod-location-profile = { path = "../luperiq-mod-location-profile" }
+luperiq-mod-seo = { path = "../luperiq-mod-seo" }
+axum = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+tokio = { workspace = true }
+ulid = "1"
+
+[dev-dependencies]
+tempfile = "3"

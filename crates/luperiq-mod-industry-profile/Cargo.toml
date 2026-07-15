@@ -1,0 +1,17 @@
+[package]
+name = "luperiq-mod-industry-profile"
+version = "0.1.0"
+edition = "2021"
+description = "Industry Profile module — centrally maintained data sheets per industry"
+
+[dependencies]
+luperiq-module-api = { path = "../luperiq-module-api" }
+luperiq-forge-api = { path = "../luperiq-forge-api" }
+axum = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = "1.0"
+ulid = "1"
+tokio = { workspace = true }
+
+[dev-dependencies]
+tempfile = "3"

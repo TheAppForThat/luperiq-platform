@@ -1,0 +1,38 @@
+# luperiq-mod-reporting — the ONE reporting engine for LuperIQ commerce.
+#
+# Owns NO data. It reads each engine's existing WAL aggregates through a
+# `ReportSource` trait into a normalized `LedgerRow` stream, then computes
+# per-site-type report profiles (daily sales, AR aging, outstanding invoices,
+# subscription MRR, coupon ROI, tickets sold, refunds, tax). One engine serves
+# every vertical: food truck → daily sales; wholesale → AR aging; Drs/attorneys
+# → outstanding invoices; subscriptions → MRR; events → tickets sold.
+#
+# Built STANDALONE on the siteRustTemplate2 conventions: compiles + `cargo
+# test`s green with no platform crates (the pure report math is fully testable).
+# In the real workspace, one `impl ReportSource` per engine (CommerceProjection,
+# invoicing, promotions, creator-hub) feeds the same computations, and a thin
+# CmsModule exposes admin dashboards. House rule: in-house over crates; this
+# crate needs none beyond serde + thiserror (no SQLite — it owns no store).
+
+[package]
+name = "luperiq-mod-reporting"
+version = "0.1.0"
+edition = "2021"
+description = "Reporting engine: normalizes every commerce engine's events into a LedgerRow stream and computes per-site-type report profiles (sales, AR aging, MRR, coupon/affiliate ROI, tickets). Owns no data."
+publish = false
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
+thiserror = "2.0"
+
+[dev-dependencies]
+# Compose the real catalog + promotions + payments-core engines at test-time so
+# the full pipeline (price → discount → checkout → REPORTING) is proven on actual
+# types — closing the last engine-to-engine seam. Path deps; tests only.
+# Integration tests require private crates available on the hosted platform:
+# luperiq-mod-catalog = { path = "../luperiq-mod-catalog" }
+# luperiq-mod-promotions = { path = "../luperiq-mod-promotions" }
+# luperiq-mod-payments-core = { path = "../luperiq-mod-payments-core" }
+
+# Own workspace root so it builds in isolation (siteRustTemplate2 convention).
