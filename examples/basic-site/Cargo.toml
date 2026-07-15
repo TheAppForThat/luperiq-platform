@@ -1,0 +1,10 @@
+[package]
+name = "basic-site"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+luperiq = { path = "../../crates/luperiq" }
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.0", features = ["full"] }
